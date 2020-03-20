@@ -33,7 +33,7 @@ resource "aws_route_table" "privates" {
           var.project_name, 
           var.workspace, 
           var.single_nat_gateway ? 
-            keys(var.private_subnets)[count.index % (length(var.private_subnets))]:, 
+            keys(var.private_subnets)[count.index % (length(var.private_subnets))]:
             keys(var.private_subnets)[floor(count.index / (length(local.availability_zones)))],
           var.single_nat_gateway ? 
             local.availability_zones.*.name_suffix[floor(count.index / (length(var.private_subnets)))]:
